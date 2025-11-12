@@ -1,0 +1,144 @@
+{
+    "configuration": {
+        "device": {
+            "orientation": "landscape",
+            "deviceName": "Desktop"
+        }
+    },
+    "type": "clickpath",
+    "version": "1.0",
+    "events": [
+        {
+            "description": "Loading of \"https://rozetka.com.ua/\"",
+            "wait": {
+                "waitFor": "page_complete"
+            },
+            "target": {},
+            "type": "navigate",
+            "url": "https://rozetka.com.ua/"
+        },
+        {
+            "description": "type ${searchQuery}",
+            "wait": {
+                "waitFor": "page_complete"
+            },
+            "target": {
+                "locators": [
+                    {
+                        "type": "dom",
+                        "value": "document.evaluate('//input[@name=\\'search\\']', document, null, XPathResult.ANY_TYPE, null).iterateNext()"
+                    }
+                ]
+            },
+            "type": "keystrokes",
+            "textValue": "${searchQuery}",
+            "simulateBlurEvent": true,
+            "masked": false
+        },
+        {
+            "description": "click",
+            "wait": {
+                "waitFor": "page_complete"
+            },
+            "target": {
+                "locators": [
+                    {
+                        "type": "dom",
+                        "value": "document.evaluate('//button[@type=\\'submit\\']', document, null, XPathResult.ANY_TYPE, null).iterateNext()"
+                    }
+                ]
+            },
+            "type": "click",
+            "button": 0
+        },
+        {
+            "description": "waitForElementPresent",
+            "wait": {
+                "waitFor": "validation",
+                "timeoutInMilliseconds": 60000,
+                "validation": {
+                    "target": {
+                        "locators": [
+                            {
+                                "type": "dom",
+                                "value": "document.evaluate('//main//h1[@class=\\'catalog-heading\\']', document, null, XPathResult.ANY_TYPE, null).iterateNext()"
+                            }
+                        ]
+                    },
+                    "type": "element_match",
+                    "failIfFound": false,
+                    "match": ""
+                }
+            },
+            "target": {},
+            "type": "javascript",
+            "javaScript": ""
+        },
+        {
+            "description": "assertText",
+            "wait": {
+                "waitFor": "page_complete"
+            },
+            "target": {},
+            "type": "javascript",
+            "javaScript": "const elem = document.evaluate('//main//h1[@class=\\'catalog-heading\\']', document, null, XPathResult.ANY_TYPE, null).iterateNext();\n                        const textToMatch = elem.innerText;\n                        const matches = textToMatch === \"${expectedText}\";\n                        if(matches && false) {\n                            api.fail(\"Text ${expectedText} was present.\");\n                        } else if(!matches && !false) {\n                            api.fail(\"Text ${expectedText} was not present.\");\n                        }"
+        },
+        {
+            "description": "click",
+            "wait": {
+                "waitFor": "page_complete"
+            },
+            "target": {
+                "locators": [
+                    {
+                        "type": "dom",
+                        "value": "document.evaluate('//img[contains(@alt,\\'Sony WH-CH520\\')]', document, null, XPathResult.ANY_TYPE, null).iterateNext()"
+                    }
+                ]
+            },
+            "type": "click",
+            "button": 0
+        },
+        {
+            "description": "waitForElementPresent",
+            "wait": {
+                "waitFor": "validation",
+                "timeoutInMilliseconds": 60000,
+                "validation": {
+                    "target": {
+                        "locators": [
+                            {
+                                "type": "dom",
+                                "value": "document.evaluate('//h1[contains(text(), \\'Sony WH-CH520\\')]', document, null, XPathResult.ANY_TYPE, null).iterateNext()"
+                            }
+                        ]
+                    },
+                    "type": "element_match",
+                    "failIfFound": false,
+                    "match": ""
+                }
+            },
+            "target": {},
+            "type": "javascript",
+            "javaScript": ""
+        },
+        {
+            "description": "verifyText",
+            "wait": {
+                "waitFor": "page_complete"
+            },
+            "target": {},
+            "type": "javascript",
+            "javaScript": "const elem = document.evaluate('//h1[contains(text(), \\'Sony WH-CH520\\')]', document, null, XPathResult.ANY_TYPE, null).iterateNext();\n                        const textToMatch = elem.innerText;\n                        const matches = textToMatch === \"*Sony*\";\n                        if(matches && false) {\n                            api.fail(\"Text *Sony* was present.\");\n                        } else if(!matches && !false) {\n                            api.fail(\"Text *Sony* was not present.\");\n                        }"
+        },
+        {
+            "description": "back",
+            "wait": {
+                "waitFor": "page_complete"
+            },
+            "target": {},
+            "type": "javascript",
+            "javaScript": "window.history.back();"
+        }
+    ]
+}
