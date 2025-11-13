@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+<title>Rozetka_Testing_HW</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3" data-tags="">Check product search by key word </td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>https://rozetka.com.ua/<datalist><option>https://rozetka.com.ua/</option><option>/</option></datalist></td><td></td></tr>
+<tr><td>store </td><td>Навушники Sony<datalist><option>Навушники Sony</option></datalist></td><td>searchQuery</td></tr>
+<tr><td>store</td><td>Навушники SONY<datalist><option>  Смартфони, ТВ і електроніка/Навушники та аксесуари/Навушники</option><option>Навушники</option><option>Навушники SONY</option></datalist></td><td>expectedText</td></tr>
+<tr><td>type</td><td>//input[@name='search']<datalist><option>//input[@name='search']</option></datalist></td><td>${searchQuery}</td></tr>
+<tr><td>click</td><td>xpath=//button[@type='submit']<datalist><option>xpath=//button[@type='submit']</option><option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Каталог'])[1]/following::button[4]</option><option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='навушники бездротові sony'])[1]/preceding::button[1]</option><option>xpath=//*/text()[normalize-space(.)='Знайти']/parent::*</option><option>xpath=//form/div/button</option><option>css=button.button.button_color_green.button_size_medium.search-submit</option></datalist></td><td></td></tr>
+<tr><td>waitForElementPresent</td><td>//main//h1[@class='catalog-heading']<datalist><option>//h1[@class='catalog-heading']</option><option>//h1</option><option>//main//h1[@class='catalog-heading']</option></datalist></td><td>30000</td></tr>
+<tr><td>assertText</td><td>//main//h1[@class='catalog-heading']<datalist><option>//li[contains(@class, 'breadcrumbs__item--active')]//span</option><option>//li[contains(@class,'breadcrumbs__item--active')]//span</option><option>//li[contains(@class, 'breadcrumbs__item--active')]</option><option>//li[contains(@class, 'active')]</option><option>//main//h1[@class='catalog-heading']</option><option>//main//h1[@class='catalog-heading']</option></datalist></td><td>${expectedText}</td></tr>
+<tr><td>assertElementPresent</td><td>//a[contains(text(),'Навушники')]<datalist><option>css=.breadcrumbs</option><option>xpath=//ul[contains(@class, 'breadcrumbs')]</option><option>css=ul.breadcrumbs</option><option>css=.breadcrumbs</option><option>//ul[contains(@class, 'breadcrumbs')]/li</option><option>//a[text()='Навушники']</option><option>//a[contains(text(),'Навушники')]</option></datalist></td><td></td></tr>
+<tr><td>click</td><td>//img[contains(@alt,'Sony WH-CH520')]<datalist><option>a.goods-tile__picture:nth-child(1)</option><option>xpath=//ul[contains(@class, 'catalog-grid')]/li[1]//a</option><option>css=li.catalog-grid__cell:nth-of-type(1) a</option><option>xpath=//li[1]//a[contains(@class, 'goods-tile__picture')]</option><option>//li[1]//a[contains(@class, 'goods-tile__picture')]</option><option>css=li.catalog-grid__cell:nth-child(1) a</option><option>//div[@data-testid='catalog']//li[1]/rz-grid-tile/div/a</option><option>//img[contains(@alt,'Sony WH-CH520')]</option></datalist></td><td></td></tr>
+<tr><td>waitForElementPresent</td><td>//h1[contains(text(), 'Sony WH-CH520')]<datalist><option>//p[contains(@class, 'product-prices__big')]</option><option>css=.product-prices__big</option><option>css=.product-prices__bicss=.product-prices__big</option><option>css=.product-prices__big</option><option>//p[contains(@class, 'product-prices')]</option><option>//div[contains(@class, 'product-card')]//p[contains(text(), '₴')]</option><option>css=.product-price__big</option><option>css=.product-title</option><option>//h1[contains(text(), 'Sony WH-CH520')]</option></datalist></td><td>30000</td></tr>
+<tr><td>verifyText</td><td>//h1[contains(text(), 'Sony WH-CH520')]<datalist><option>//h1[contains(@class, 'product__title')]</option><option>css=.product__title</option><option>css=.product__title</option><option>css=.product-title</option><option>//h1[contains(text(), 'Sony WH-CH520')]</option></datalist></td><td>*Sony*</td></tr>
+<tr><td>goBack</td><td><datalist></datalist></td><td></td></tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3" data-tags="">Check adding product in the cart</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>https://rozetka.com.ua/<datalist><option>https://rozetka.com.ua/</option><option>/</option></datalist></td><td></td></tr>
+<tr><td>store </td><td>Навушники Sony<datalist><option>Навушники Sony</option></datalist></td><td>searchQuery</td></tr>
+<tr><td>store</td><td>Навушники SONY<datalist><option>  Смартфони, ТВ і електроніка/Навушники та аксесуари/Навушники</option><option>Навушники</option><option>Навушники SONY</option></datalist></td><td>expectedText</td></tr>
+<tr><td>type</td><td>//input[@name='search']<datalist><option>//input[@name='search']</option></datalist></td><td>${searchQuery}</td></tr>
+<tr><td>click</td><td>xpath=//button[@type='submit']<datalist><option>xpath=//button[@type='submit']</option><option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Каталог'])[1]/following::button[4]</option><option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='навушники бездротові sony'])[1]/preceding::button[1]</option><option>xpath=//*/text()[normalize-space(.)='Знайти']/parent::*</option><option>xpath=//form/div/button</option><option>css=button.button.button_color_green.button_size_medium.search-submit</option></datalist></td><td></td></tr>
+<tr><td>waitForElementPresent</td><td>//main//h1[@class='catalog-heading']<datalist><option>//h1[@class='catalog-heading']</option><option>//h1</option><option>//main//h1[@class='catalog-heading']</option></datalist></td><td>30000</td></tr>
+<tr><td>assertText</td><td>//main//h1[@class='catalog-heading']<datalist><option>//li[contains(@class, 'breadcrumbs__item--active')]//span</option><option>//li[contains(@class,'breadcrumbs__item--active')]//span</option><option>//li[contains(@class, 'breadcrumbs__item--active')]</option><option>//li[contains(@class, 'active')]</option><option>//main//h1[@class='catalog-heading']</option><option>//main//h1[@class='catalog-heading']</option></datalist></td><td>${expectedText}</td></tr>
+<tr><td>assertElementPresent</td><td>//a[contains(text(),'Навушники')]<datalist><option>css=.breadcrumbs</option><option>xpath=//ul[contains(@class, 'breadcrumbs')]</option><option>css=ul.breadcrumbs</option><option>css=.breadcrumbs</option><option>//ul[contains(@class, 'breadcrumbs')]/li</option><option>//a[text()='Навушники']</option><option>//a[contains(text(),'Навушники')]</option></datalist></td><td></td></tr>
+<tr><td>click</td><td>//img[contains(@alt,'Sony WH-CH520')]<datalist><option>a.goods-tile__picture:nth-child(1)</option><option>xpath=//ul[contains(@class, 'catalog-grid')]/li[1]//a</option><option>css=li.catalog-grid__cell:nth-of-type(1) a</option><option>xpath=//li[1]//a[contains(@class, 'goods-tile__picture')]</option><option>//li[1]//a[contains(@class, 'goods-tile__picture')]</option><option>css=li.catalog-grid__cell:nth-child(1) a</option><option>//div[@data-testid='catalog']//li[1]/rz-grid-tile/div/a</option><option>//img[contains(@alt,'Sony WH-CH520')]</option></datalist></td><td></td></tr>
+<tr><td>waitForElementPresent</td><td>//rz-buy-button/button<datalist><option>//p[contains(@class, 'product-prices__big')]</option><option>css=.product-prices__big</option><option>css=.product-prices__bicss=.product-prices__big</option><option>css=.product-prices__big</option><option>//p[contains(@class, 'product-prices')]</option><option>//div[contains(@class, 'product-card')]//p[contains(text(), '₴')]</option><option>css=.product-price__big</option><option>css=.product-title</option><option>//h1[contains(text(), 'Sony WH-CH520')]</option><option>//button[contains(text(), 'Купити')]</option><option>css=rz-buy-button button</option><option>//rz-buy-button/button</option></datalist></td><td>30000</td></tr>
+<tr><td>click</td><td>//rz-buy-button/button<datalist><option>//button[contains(text(), 'Купити')]</option><option>css=rz-buy-button button</option><option>//rz-buy-button/button</option></datalist></td><td></td></tr>
+<tr><td>pause</td><td><datalist></datalist></td><td>30000</td></tr>
+<tr><td>waitForElementPresent</td><td>xpath=/html/body/rz-app-root/rz-modal/rz-modal-layout/div[2]/rz-shopping-cart<datalist><option>css=rz-icon-counter.header-actions__counter</option><option>css=.header-actions__button--basket .header-actions__count</option><option>//rz-icon-counter/span[1]</option><option>css=.header-actions__count</option><option>css=.modal-header</option><option>xpath=/html/body/rz-app-root/rz-modal/rz-modal-layout/div[2]/rz-shopping-cart</option></datalist></td><td>30000</td></tr>
+<tr><td>waitForElementPresent</td><td>css=.cart-product__title<datalist><option>css=.cart-product</option><option>//a[contains(text(), 'Sony WH-CH520')]</option><option>css=.cart-product__title</option></datalist></td><td>30000</td></tr>
+<tr><td>assertElementPresent</td><td>css=.cart-product__title<datalist><option>//a[contains(text(), 'Sony WH-CH520')]</option><option>css=.cart-product__title</option></datalist></td><td></td></tr>
+<tr><td>click</td><td>xpath=(.//*[normalize-space(text()) and normalize-space(.)='₴'])[2]/following::button[3]<datalist><option>xpath=//div[@id='#scrollArea']/div/div[3]/rz-product-main-info/div/div/div/div[3]/rz-product-buy-btn/rz-buy-button/button</option><option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='₴'])[2]/following::button[3]</option><option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='₴'])[1]/following::button[3]</option><option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Оплатити частинами'])[1]/preceding::button[1]</option><option>xpath=//rz-buy-button/button</option><option>css=button.buy-button.button.button--with-icon.button--green.button--medium.buy-button--tile</option><option>//*[@id="cartProductActions0"]//button</option></datalist></td><td></td></tr>
+<tr><td>click</td><td>css=use<datalist><option>css=use</option></datalist></td><td></td></tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3" data-tags="">Check the addition of the product to the comparison list</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>https://rozetka.com.ua/<datalist><option>https://rozetka.com.ua/ua/sony-whch520b-ce7/p407397036/</option><option>https://rozetka.com.ua/</option></datalist></td><td></td></tr>
+<tr><td>store</td><td>Навушники Sony<datalist><option>css=svg.icon > use</option><option>Навушники Sony</option></datalist></td><td>searchQuery</td></tr>
+<tr><td>store</td><td>Списки порівнянь<datalist><option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Знайти'])[1]/following::*[name()='svg'][4]</option><option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Каталог'])[1]/following::*[name()='svg'][6]</option><option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='До розпродажу'])[1]/preceding::*[name()='svg'][3]</option><option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Ноутбуки та комп’ютери'])[1]/preceding::*[name()='svg'][3]</option><option>Списки порівнянь</option></datalist></td><td>expectedTitle</td></tr>
+<tr><td>type</td><td>//input[@name='search']<datalist><option>https://rozetka.com.ua/ua/comparison/</option><option>//input[@name='search']</option></datalist></td><td>${searchQuery}</td></tr>
+<tr><td>click</td><td>xpath=//button[@type='submit']<datalist><option>xpath=//img[@alt='Навушники Sony WH-CH520 Black (WHCH520B.CE7)']</option><option>xpath=//li/img</option><option>css=img.image</option><option>xpath=//button[@type='submit']</option></datalist></td><td></td></tr>
+<tr><td>waitForElementPresent</td><td>//main//h1[@class='catalog-heading']<datalist><option>//main//h1[@class='catalog-heading']</option></datalist></td><td>30000</td></tr>
+<tr><td>click</td><td>//button[contains(@class, 'compare-button')][1]<datalist><option>//button[contains(@class, 'compare-button')][1]</option></datalist></td><td></td></tr>
+<tr><td>pause</td><td><datalist></datalist></td><td>30000</td></tr>
+<tr><td>open</td><td>https://rozetka.com.ua/ua/comparison/<datalist><option>css=.header-actions__button--compare</option><option>https://rozetka.com.ua/comparison/</option><option>https://rozetka.com.ua/ua/comparison/</option></datalist></td><td></td></tr>
+<tr><td>assertElementPresent</td><td>//a[contains(text(), 'Sony')]<datalist><option>css=.comparison-t-cell:nth-child(1)</option><option>//a[contains(text(), 'Sony')]</option></datalist></td><td></td></tr>
+<tr><td>goBack</td><td><datalist></datalist></td><td></td></tr>
+</tbody></table>
+</body>
+</html>
